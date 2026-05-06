@@ -1,0 +1,38 @@
+---
+description: Prefer shadcn UI for interface work
+globs: src/**/*.{tsx,ts,css}
+alwaysApply: false
+---
+
+# UI Components: shadcn First
+
+- Prefer existing `shadcn/ui` components before creating custom UI primitives.
+- Before building a new button, input, dialog, dropdown, card, table, form, or layout primitive, check if a shadcn component/pattern already solves it.
+- If a matching shadcn component exists, use it and style/compose around it instead of reimplementing from scratch.
+- Create custom UI only when:
+  - no suitable shadcn component exists, or
+  - product requirements cannot be met through composition/variants.
+- When unsure about component choice, usage, theming, or composition, use the `shadcn` skill guidance first.
+
+## Preferred Workflow
+
+1. Check whether the UI need maps to an existing shadcn component.
+2. Reuse and compose shadcn components with project styling tokens.
+3. Only then implement minimal custom UI for uncovered gaps.
+
+## Examples
+
+```tsx
+// ❌ Avoid: Rebuilding a dialog primitive from scratch
+export function CustomModal() {
+  return <div className="fixed inset-0">...</div>;
+}
+
+// ✅ Prefer: Use shadcn dialog and customize content/variants
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+```
