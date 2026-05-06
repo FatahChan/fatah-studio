@@ -18,7 +18,7 @@ export function GameCard({ game, className }: { game: Game; className?: string }
       <Link
         to="/games/$slug"
         params={{ slug: game.slug }}
-        className="flex h-full flex-col"
+        className="flex h-full flex-col gap-4"
       >
         <AspectRatio
           ratio={4 / 5}
