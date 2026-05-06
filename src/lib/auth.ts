@@ -5,25 +5,35 @@ import { createDb } from '#/db'
 import { env } from 'cloudflare:workers'
 import * as schema from '#/db/schema'
 
-const betterAuthSecret = env.BETTER_AUTH_SECRET ?? process.env.BETTER_AUTH_SECRET
-if (!betterAuthSecret) {
-  throw new Error('Missing BETTER_AUTH_SECRET')
+function createAuth() {
+  const betterAuthSecret = env.BETTER_AUTH_SECRET ?? process.env.BETTER_AUTH_SECRET
+  if (!betterAuthSecret) {
+    throw new Error('Missing BETTER_AUTH_SECRET')
+  }
+
+  return betterAuth({
+    secret: betterAuthSecret,
+    baseURL: {
+      allowedHosts: ['http://localhost:3000', 'http://localhost:8787', 'https://fatahchan-studio.ahmadfathallah89.workers.dev', 'https://*.fatahchan-studio.ahmadfathallah89.workers.dev', 'studio.fatahchan.dev'],
+    },
+    trustedOrigins: ['http://localhost:3000', 'http://localhost:8787', 'https://fatahchan-studio.ahmadfathallah89.workers.dev', 'https://*.fatahchan-studio.ahmadfathallah89.workers.dev', 'studio.fatahchan.dev'],
+    emailAndPassword: {
+      enabled: true,
+    },
+    plugins: [tanstackStartCookies()],
+    database: drizzleAdapter(createDb(), {
+      provider: 'sqlite',
+      schema: schema,
+    }),
+  })
 }
 
-const auth = betterAuth({
-  secret: betterAuthSecret,
-  baseURL: {
-    allowedHosts: ['http://localhost:3000', 'http://localhost:8787', 'https://fatahchan-studio.ahmadfathallah89.workers.dev', 'https://*.fatahchan-studio.ahmadfathallah89.workers.dev',"studio.fatahchan.dev"    ],
-  },
-  trustedOrigins: ['http://localhost:3000', 'http://localhost:8787', 'https://fatahchan-studio.ahmadfathallah89.workers.dev', 'https://*.fatahchan-studio.ahmadfathallah89.workers.dev',"studio.fatahchan.dev"    ],
-  emailAndPassword: {
-    enabled: true,
-  },
-  plugins: [tanstackStartCookies()],
-  database: drizzleAdapter(createDb(), {
-    provider: 'sqlite',
-    schema: schema,
-  }),
-})
+let authInstance: ReturnType<typeof createAuth> | undefined
 
-export default auth
+export function getAuth() {
+  if (!authInstance) {
+    authInstance = createAuth()
+  }
+
+  return authInstance
+}
