@@ -8,10 +8,13 @@ import { GameCard } from "@/components/site/game-card";
 import { games, type GameStatus } from "@/content/games";
 import { cn } from "@/lib/utils";
 
+const normalizedStatusSchema = z.preprocess((value) => {
+  if (typeof value !== "string") return undefined;
+  return value.trim().replace(/\/+$/, "").toLowerCase();
+}, z.enum(["all", "announced", "in-development", "released"]).optional());
+
 const filterSchema = z.object({
-  status: z
-    .enum(["all", "announced", "in-development", "released"])
-    .optional(),
+  status: normalizedStatusSchema,
 });
 
 export const Route = createFileRoute("/games/")({
