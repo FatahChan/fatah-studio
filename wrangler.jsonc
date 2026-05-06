@@ -8,7 +8,8 @@
     {
       "binding": "DATABASE_BIND",
       "database_name": "fatah-studio",
-      "database_id": "8420e6f7-213c-4438-a291-bbe364ea00e9"
+      "database_id": "8420e6f7-213c-4438-a291-bbe364ea00e9",
+      "migrations_dir": "drizzle"
     }
   ]
 }

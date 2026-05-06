@@ -1,5 +1,7 @@
-import { drizzle } from 'drizzle-orm/better-sqlite3'
+import { drizzle } from 'drizzle-orm/d1'
 
 import * as schema from './schema.ts'
 
-export const db = drizzle(process.env.DATABASE_URL!, { schema })
+type D1Database = Parameters<typeof drizzle>[0]
+
+export const createDb = (database: D1Database) => drizzle(database, { schema })
