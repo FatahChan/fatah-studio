@@ -9,18 +9,78 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as PressRouteImport } from './routes/press'
+import { Route as PlaygroundRouteImport } from './routes/playground'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as GamesIndexRouteImport } from './routes/games/index'
+import { Route as DevlogIndexRouteImport } from './routes/devlog/index'
+import { Route as GamesSlugRouteImport } from './routes/games/$slug'
+import { Route as DevlogSlugRouteImport } from './routes/devlog/$slug'
 import { Route as ApiTodosRouteImport } from './routes/api/todos'
+import { Route as ApiNewsletterRouteImport } from './routes/api/newsletter'
+import { Route as ApiContactRouteImport } from './routes/api/contact'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 
+const PressRoute = PressRouteImport.update({
+  id: '/press',
+  path: '/press',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlaygroundRoute = PlaygroundRouteImport.update({
+  id: '/playground',
+  path: '/playground',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GamesIndexRoute = GamesIndexRouteImport.update({
+  id: '/games/',
+  path: '/games/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DevlogIndexRoute = DevlogIndexRouteImport.update({
+  id: '/devlog/',
+  path: '/devlog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GamesSlugRoute = GamesSlugRouteImport.update({
+  id: '/games/$slug',
+  path: '/games/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DevlogSlugRoute = DevlogSlugRouteImport.update({
+  id: '/devlog/$slug',
+  path: '/devlog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiTodosRoute = ApiTodosRouteImport.update({
   id: '/api/todos',
   path: '/api/todos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiNewsletterRoute = ApiNewsletterRouteImport.update({
+  id: '/api/newsletter',
+  path: '/api/newsletter',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiContactRoute = ApiContactRouteImport.update({
+  id: '/api/contact',
+  path: '/api/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
@@ -31,36 +91,144 @@ const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/playground': typeof PlaygroundRoute
+  '/press': typeof PressRoute
+  '/api/contact': typeof ApiContactRoute
+  '/api/newsletter': typeof ApiNewsletterRoute
   '/api/todos': typeof ApiTodosRoute
+  '/devlog/$slug': typeof DevlogSlugRoute
+  '/games/$slug': typeof GamesSlugRoute
+  '/devlog/': typeof DevlogIndexRoute
+  '/games/': typeof GamesIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/playground': typeof PlaygroundRoute
+  '/press': typeof PressRoute
+  '/api/contact': typeof ApiContactRoute
+  '/api/newsletter': typeof ApiNewsletterRoute
   '/api/todos': typeof ApiTodosRoute
+  '/devlog/$slug': typeof DevlogSlugRoute
+  '/games/$slug': typeof GamesSlugRoute
+  '/devlog': typeof DevlogIndexRoute
+  '/games': typeof GamesIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/playground': typeof PlaygroundRoute
+  '/press': typeof PressRoute
+  '/api/contact': typeof ApiContactRoute
+  '/api/newsletter': typeof ApiNewsletterRoute
   '/api/todos': typeof ApiTodosRoute
+  '/devlog/$slug': typeof DevlogSlugRoute
+  '/games/$slug': typeof GamesSlugRoute
+  '/devlog/': typeof DevlogIndexRoute
+  '/games/': typeof GamesIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/api/todos' | '/api/auth/$'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/playground'
+    | '/press'
+    | '/api/contact'
+    | '/api/newsletter'
+    | '/api/todos'
+    | '/devlog/$slug'
+    | '/games/$slug'
+    | '/devlog/'
+    | '/games/'
+    | '/api/auth/$'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/api/todos' | '/api/auth/$'
-  id: '__root__' | '/' | '/api/todos' | '/api/auth/$'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/playground'
+    | '/press'
+    | '/api/contact'
+    | '/api/newsletter'
+    | '/api/todos'
+    | '/devlog/$slug'
+    | '/games/$slug'
+    | '/devlog'
+    | '/games'
+    | '/api/auth/$'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/playground'
+    | '/press'
+    | '/api/contact'
+    | '/api/newsletter'
+    | '/api/todos'
+    | '/devlog/$slug'
+    | '/games/$slug'
+    | '/devlog/'
+    | '/games/'
+    | '/api/auth/$'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
+  PlaygroundRoute: typeof PlaygroundRoute
+  PressRoute: typeof PressRoute
+  ApiContactRoute: typeof ApiContactRoute
+  ApiNewsletterRoute: typeof ApiNewsletterRoute
   ApiTodosRoute: typeof ApiTodosRoute
+  DevlogSlugRoute: typeof DevlogSlugRoute
+  GamesSlugRoute: typeof GamesSlugRoute
+  DevlogIndexRoute: typeof DevlogIndexRoute
+  GamesIndexRoute: typeof GamesIndexRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/press': {
+      id: '/press'
+      path: '/press'
+      fullPath: '/press'
+      preLoaderRoute: typeof PressRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/playground': {
+      id: '/playground'
+      path: '/playground'
+      fullPath: '/playground'
+      preLoaderRoute: typeof PlaygroundRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -68,11 +236,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/games/': {
+      id: '/games/'
+      path: '/games'
+      fullPath: '/games/'
+      preLoaderRoute: typeof GamesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/devlog/': {
+      id: '/devlog/'
+      path: '/devlog'
+      fullPath: '/devlog/'
+      preLoaderRoute: typeof DevlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/games/$slug': {
+      id: '/games/$slug'
+      path: '/games/$slug'
+      fullPath: '/games/$slug'
+      preLoaderRoute: typeof GamesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/devlog/$slug': {
+      id: '/devlog/$slug'
+      path: '/devlog/$slug'
+      fullPath: '/devlog/$slug'
+      preLoaderRoute: typeof DevlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/todos': {
       id: '/api/todos'
       path: '/api/todos'
       fullPath: '/api/todos'
       preLoaderRoute: typeof ApiTodosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/newsletter': {
+      id: '/api/newsletter'
+      path: '/api/newsletter'
+      fullPath: '/api/newsletter'
+      preLoaderRoute: typeof ApiNewsletterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/contact': {
+      id: '/api/contact'
+      path: '/api/contact'
+      fullPath: '/api/contact'
+      preLoaderRoute: typeof ApiContactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/auth/$': {
@@ -87,7 +297,17 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
+  PlaygroundRoute: PlaygroundRoute,
+  PressRoute: PressRoute,
+  ApiContactRoute: ApiContactRoute,
+  ApiNewsletterRoute: ApiNewsletterRoute,
   ApiTodosRoute: ApiTodosRoute,
+  DevlogSlugRoute: DevlogSlugRoute,
+  GamesSlugRoute: GamesSlugRoute,
+  DevlogIndexRoute: DevlogIndexRoute,
+  GamesIndexRoute: GamesIndexRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
 }
 export const routeTree = rootRouteImport

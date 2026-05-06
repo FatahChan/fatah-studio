@@ -15,6 +15,13 @@
       "when": 1778083842456,
       "tag": "0001_illegal_cerebro",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1778088232127,
+      "tag": "0002_complete_paper_doll",
+      "breakpoints": true
     }
   ]
 }
