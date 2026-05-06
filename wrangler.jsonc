@@ -3,5 +3,12 @@
   "name": "tanstack-start-app",
   "compatibility_date": "2025-09-02",
   "compatibility_flags": ["nodejs_compat"],
-  "main": "@tanstack/react-start/server-entry"
+  "main": "@tanstack/react-start/server-entry",
+  "d1_databases": [
+    {
+      "binding": "DATABASE_BIND",
+      "database_name": "fatah-studio",
+      "database_id": "8420e6f7-213c-4438-a291-bbe364ea00e9"
+    }
+  ]
 }
