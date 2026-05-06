@@ -1,9 +1,9 @@
 import { betterAuth } from 'better-auth'
 import { tanstackStartCookies } from 'better-auth/tanstack-start'
 import { drizzleAdapter } from '@better-auth/drizzle-adapter'
-import { createDb } from '#/db'
+import { createDb } from '@/db'
 import { env } from 'cloudflare:workers'
-import * as schema from '#/db/schema'
+import * as schema from '@/db/schema'
 
 function createAuth() {
   const betterAuthSecret = env.BETTER_AUTH_SECRET ?? process.env.BETTER_AUTH_SECRET

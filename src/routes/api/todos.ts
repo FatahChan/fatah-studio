@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { createDb } from '#/db'
-import { todos } from '#/db/schema'
+import { createDb } from '@/db'
+import { todos } from '@/db/schema'
 
 export const Route = createFileRoute('/api/todos')({
   server: {
