@@ -18,9 +18,16 @@ export const Route = createFileRoute('/api/todos')({
           return Response.json({ error: 'Title is required' }, { status: 400 })
         }
 
-        const db = createDb()
+        let db: ReturnType<typeof createDb>
+        try {
+          db = createDb()
+        } catch (error) {
+          console.error('Error creating database', error)
+          return Response.json({ error: 'Failed to create database' }, { status: 500 })
+        }
+        console.log('Database created')
         await db.insert(todos).values({ title })
-
+        console.log('Todo inserted')
         return Response.json({ ok: true }, { status: 201 })
       },
     },

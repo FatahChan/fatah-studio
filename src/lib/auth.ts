@@ -2,16 +2,26 @@ import { betterAuth } from 'better-auth'
 import { tanstackStartCookies } from 'better-auth/tanstack-start'
 import { drizzleAdapter } from '@better-auth/drizzle-adapter'
 import { createDb } from '#/db'
+import { env } from 'cloudflare:workers'
+import * as schema from '#/db/schema'
 
+const betterAuthSecret = env.BETTER_AUTH_SECRET ?? process.env.BETTER_AUTH_SECRET
+if (!betterAuthSecret) {
+  throw new Error('Missing BETTER_AUTH_SECRET')
+}
 
 const auth = betterAuth({
-    emailAndPassword: {
-      enabled: true,
-    },
-    plugins: [tanstackStartCookies()],
-    database: drizzleAdapter(createDb(), {
-      provider: 'sqlite',
-    }),
-  })
+  secret: betterAuthSecret,
+  baseURL: env.BETTER_AUTH_URL ?? process.env.BETTER_AUTH_URL ?? 'http://localhost:8787',
+  trustedOrigins: ['http://localhost:3000', 'http://localhost:8787'],
+  emailAndPassword: {
+    enabled: true,
+  },
+  plugins: [tanstackStartCookies()],
+  database: drizzleAdapter(createDb(), {
+    provider: 'sqlite',
+    schema: schema,
+  }),
+})
 
 export default auth

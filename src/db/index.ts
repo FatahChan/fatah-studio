@@ -8,7 +8,7 @@ import * as schema from './schema.ts'
 
 export const createDb = () => {
   const database = env.DATABASE_BIND
-
+  
   if (database) {
     return drizzleD1(database, { schema })
   }
