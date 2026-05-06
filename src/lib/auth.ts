@@ -12,8 +12,10 @@ if (!betterAuthSecret) {
 
 const auth = betterAuth({
   secret: betterAuthSecret,
-  baseURL: env.BETTER_AUTH_URL ?? process.env.BETTER_AUTH_URL ?? 'http://localhost:8787',
-  trustedOrigins: ['http://localhost:3000', 'http://localhost:8787'],
+  baseURL: {
+    allowedHosts: ['http://localhost:3000', 'http://localhost:8787', 'https://fatahchan-studio.ahmadfathallah89.workers.dev', 'https://*.fatahchan-studio.ahmadfathallah89.workers.dev',"studio.fatahchan.dev"    ],
+  },
+  trustedOrigins: ['http://localhost:3000', 'http://localhost:8787', 'https://fatahchan-studio.ahmadfathallah89.workers.dev', 'https://*.fatahchan-studio.ahmadfathallah89.workers.dev',"studio.fatahchan.dev"    ],
   emailAndPassword: {
     enabled: true,
   },
