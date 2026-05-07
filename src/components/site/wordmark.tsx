@@ -21,7 +21,7 @@ export function Wordmark({
         className="inline-block size-2 rounded-none bg-primary"
       />
       <span>
-        Fatah<span className="text-primary">Chan</span>
+        FatahChan
         <span className="text-muted-foreground"> / studio</span>
       </span>
     </span>

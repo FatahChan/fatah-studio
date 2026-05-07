@@ -76,7 +76,7 @@ export function GameCard({ game, className }: { game: Game; className?: string }
           <p className="text-xs leading-relaxed text-muted-foreground">
             {game.tagline}
           </p>
-          <span className="mt-auto inline-flex items-center gap-1 text-xs font-medium text-foreground transition-colors group-hover/game:text-primary">
+          <span className="mt-auto inline-flex items-center gap-1 text-xs font-medium text-foreground transition-colors group-hover/game:underline group-hover/game:font-bold">
             View game
             <RiArrowRightUpLine className="size-3.5" aria-hidden />
           </span>

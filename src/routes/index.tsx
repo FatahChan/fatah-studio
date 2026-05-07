@@ -74,7 +74,7 @@ function Hero({ featured }: { featured: Game }) {
         <h1 className="font-heading max-w-5xl text-4xl leading-[1.02] font-medium text-balance sm:text-6xl md:text-7xl lg:text-[5.5rem]">
           Worlds in
           <br />
-          the <span className="text-primary">making</span>.
+          the <span className="underline font-bold">making</span>.
         </h1>
 
         <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
