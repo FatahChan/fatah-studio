@@ -65,7 +65,10 @@ function GameDetail() {
             </span>
           )}
 
-          <h1 className="font-heading max-w-4xl text-4xl leading-[1.05] font-medium text-balance text-white sm:text-6xl md:text-7xl">
+          <h1
+            className="font-heading max-w-4xl text-4xl leading-[1.05] font-medium text-balance text-white sm:text-6xl md:text-7xl"
+            style={{ viewTransitionName: `game-title-${game.slug}` }}
+          >
             {game.title}
           </h1>
 

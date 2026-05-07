@@ -53,7 +53,10 @@ export function GameCard({ game, className }: { game: Game; className?: string }
                 {STATUS_LABEL[game.status]}
               </Badge>
             </div>
-            <h3 className="font-heading text-2xl leading-tight font-medium text-white sm:text-3xl">
+            <h3
+              className="font-heading text-2xl leading-tight font-medium text-white sm:text-3xl"
+              style={{ viewTransitionName: `game-title-${game.slug}` }}
+            >
               {game.title}
             </h3>
           </div>
