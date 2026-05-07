@@ -48,7 +48,7 @@ export function GameCard({ game, className }: { game: Game; className?: string }
               )}
               <Badge
                 variant="outline"
-                className="border-white/40 bg-black/20 text-[10px] tracking-[0.15em] text-primary-foreground uppercase backdrop-blur-sm"
+                className="border-muted-foreground bg-muted text-[10px] tracking-[0.15em] text-foreground uppercase backdrop-blur-sm"
               >
                 {STATUS_LABEL[game.status]}
               </Badge>
