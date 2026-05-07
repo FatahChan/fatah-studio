@@ -51,47 +51,47 @@ function GameDetail() {
           }}
         />
 
-        <div className="mx-auto flex max-w-7xl flex-col gap-8 px-4 py-20 text-white md:px-8 md:py-28 lg:py-36">
+        <div className="mx-auto flex max-w-7xl flex-col gap-8 px-4 py-20 text-foreground md:px-8 md:py-28 lg:py-36">
           <Link
             to="/games"
-            className="inline-flex w-fit items-center gap-2 text-[10px] tracking-[0.25em] text-white/80 uppercase transition-colors hover:text-white"
+            className="inline-flex w-fit items-center gap-2 text-[10px] tracking-[0.25em] text-muted-foreground uppercase transition-colors hover:text-foreground"
           >
             <RiArrowLeftLine className="size-3" /> All games
           </Link>
 
           {game.codename && (
-            <span className="font-heading text-[10px] tracking-[0.25em] text-white/70 uppercase">
+            <span className="font-heading text-[10px] tracking-[0.25em] text-muted-foreground uppercase">
               {game.codename}
             </span>
           )}
 
           <h1
-            className="font-heading max-w-4xl text-4xl leading-[1.05] font-medium text-balance text-white sm:text-6xl md:text-7xl"
+            className="font-heading max-w-4xl text-4xl leading-[1.05] font-medium text-balance text-foreground sm:text-6xl md:text-7xl"
             style={{ viewTransitionName: `game-title-${game.slug}` }}
           >
             {game.title}
           </h1>
 
-          <p className="max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg">
+          <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
             {game.tagline}
           </p>
 
           <div className="flex flex-wrap gap-2">
             <Badge
               variant="outline"
-              className="border-white/40 bg-black/20 text-[10px] tracking-[0.15em] text-white uppercase backdrop-blur-sm"
+              className="border-white/40 bg-black/20 text-[10px] tracking-[0.15em] text-foreground uppercase backdrop-blur-sm"
             >
               {STATUS_LABEL[game.status]}
             </Badge>
             <Badge
               variant="outline"
-              className="border-white/40 bg-black/20 text-[10px] tracking-[0.15em] text-white uppercase backdrop-blur-sm"
+              className="border-white/40 bg-black/20 text-[10px] tracking-[0.15em] text-foreground uppercase backdrop-blur-sm"
             >
               {game.releaseWindow}
             </Badge>
             <Badge
               variant="outline"
-              className="border-white/40 bg-black/20 text-[10px] tracking-[0.15em] text-white uppercase backdrop-blur-sm"
+              className="border-white/40 bg-black/20 text-[10px] tracking-[0.15em] text-foreground uppercase backdrop-blur-sm"
             >
               {game.genre}
             </Badge>
@@ -171,7 +171,7 @@ function GameDetail() {
                 }}
               />
               <div className="absolute inset-0 flex items-end p-4">
-                <span className="font-heading text-[10px] tracking-[0.25em] text-white/80 uppercase">
+                <span className="font-heading text-[10px] tracking-[0.25em] text-muted-foreground uppercase">
                   Screen 0{i + 1}
                 </span>
               </div>

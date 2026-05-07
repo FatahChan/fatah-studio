@@ -204,19 +204,19 @@ function FeaturedGameSection({ game }: { game: Game }) {
                   "repeating-linear-gradient(0deg, rgba(0,0,0,0.18) 0 1px, transparent 1px 4px)",
               }}
             />
-            <div className="absolute inset-0 flex flex-col justify-between p-6 text-white sm:p-10">
+            <div className="absolute inset-0 flex flex-col justify-between p-6 text-foreground sm:p-10">
               <div className="flex items-center justify-between">
                 {game.codename && (
-                  <span className="font-heading text-[10px] tracking-[0.25em] text-white/80 uppercase">
+                  <span className="font-heading text-[10px] tracking-[0.25em] text-muted-foreground uppercase">
                     {game.codename}
                   </span>
                 )}
-                <span className="font-heading text-[10px] tracking-[0.25em] text-white/80 uppercase">
+                <span className="font-heading text-[10px] tracking-[0.25em] text-muted-foreground uppercase">
                   {game.releaseWindow}
                 </span>
               </div>
               <div className="flex flex-col gap-3">
-                <p className="max-w-md text-sm text-white/90 sm:text-base">
+                <p className="max-w-md text-sm text-muted-foreground sm:text-base">
                   {game.tagline}
                 </p>
               </div>

@@ -94,7 +94,7 @@ function Playground() {
             onChange={(event) => setTodoTitle(event.target.value)}
           />
           <button
-            className="rounded bg-black px-4 py-2 text-white"
+            className="rounded bg-black px-4 py-2 text-foreground"
             type="submit"
           >
             Add
@@ -122,7 +122,7 @@ function Playground() {
           />
           <div className="flex gap-2">
             <button
-              className="rounded bg-black px-4 py-2 text-white"
+              className="rounded bg-black px-4 py-2 text-foreground"
               type="submit"
             >
               Sign Up

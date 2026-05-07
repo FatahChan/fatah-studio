@@ -24,7 +24,7 @@ export function DevlogCard({
   return (
     <Card
       className={cn(
-        "group/devlog ring-0 transition-all hover:ring-1 hover:ring-primary/40",
+        "hover:scale-101 py-4 group/devlog ring-0 transition-all hover:ring-1 hover:ring-primary/40 shadow-lg",
         className,
       )}
     >

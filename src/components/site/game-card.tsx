@@ -11,7 +11,7 @@ export function GameCard({ game, className }: { game: Game; className?: string }
   return (
     <Card
       className={cn(
-        "group/game relative ring-0 transition-all hover:ring-1 hover:ring-primary/40",
+        "hover:scale-101 group/game relative ring-0 transition-all hover:ring-1 hover:ring-primary/40 shadow-lg",
         className,
       )}
     >
@@ -39,22 +39,22 @@ export function GameCard({ game, className }: { game: Game; className?: string }
             }}
             aria-hidden
           />
-          <div className="absolute inset-0 flex flex-col justify-between p-4 text-white">
+          <div className="absolute inset-0 flex flex-col justify-between p-4 text-primary-foreground">
             <div className="flex items-center justify-between">
               {game.codename && (
-                <span className="font-heading text-[10px] tracking-[0.25em] text-white/70 uppercase">
+                <span className="font-heading text-[10px] tracking-[0.25em] text-muted uppercase">
                   {game.codename}
                 </span>
               )}
               <Badge
                 variant="outline"
-                className="border-white/40 bg-black/20 text-[10px] tracking-[0.15em] text-white uppercase backdrop-blur-sm"
+                className="border-white/40 bg-black/20 text-[10px] tracking-[0.15em] text-primary-foreground uppercase backdrop-blur-sm"
               >
                 {STATUS_LABEL[game.status]}
               </Badge>
             </div>
             <h3
-              className="font-heading text-2xl leading-tight font-medium text-white sm:text-3xl"
+              className="font-heading text-2xl leading-tight font-medium text-primary-foreground sm:text-3xl"
               style={{ viewTransitionName: `game-title-${game.slug}` }}
             >
               {game.title}
