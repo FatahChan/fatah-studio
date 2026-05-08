@@ -46,7 +46,7 @@ export function DevlogCard({
               ))}
             </div>
           </div>
-          <CardTitle className="text-base leading-snug sm:text-lg">
+          <CardTitle className="text-base leading-snug sm:text-lg" style={{ viewTransitionName: `devlog-title-${post.slug}` }}>
             {post.title}
           </CardTitle>
         </CardHeader>

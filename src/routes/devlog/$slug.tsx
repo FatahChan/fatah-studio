@@ -62,7 +62,7 @@ function DevlogDetail() {
             </div>
           </div>
 
-          <h1 className="font-heading text-3xl leading-tight font-medium text-balance sm:text-5xl md:text-6xl">
+          <h1 className="font-heading text-3xl leading-tight font-medium text-balance sm:text-5xl md:text-6xl" style={{ viewTransitionName: `devlog-title-${post.slug}` }}>
             {post.title}
           </h1>
 
